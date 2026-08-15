@@ -1,6 +1,10 @@
 # Compiled files
 build/
+.pio/
 *.o
+
+# Local editor configuration
+.vscode/
 
 # Generated simulation and document output
 output/
