@@ -1,0 +1,16 @@
+# Compiled files
+build/
+*.o
+
+# Generated simulation and document output
+output/
+outputs/
+
+# Temporary working files
+tmp/
+__pycache__/
+*.pyc
+~$*
+
+# macOS
+.DS_Store
