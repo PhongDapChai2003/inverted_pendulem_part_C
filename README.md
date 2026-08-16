@@ -16,23 +16,19 @@ The project starts with the pendulum hanging downward, uses energy-based control
 ## Run locally
 
 ```sh
-make test
-make simulate
+make -C software test
+make -C software simulate
 ```
 
-The nominal simulation writes `output/simulation/nominal_run.csv` and succeeds only after remaining inside +/-5 degrees in `BALANCE` for one continuous second.
+The nominal simulation writes `software/output/simulation/nominal_run.csv` and succeeds only after remaining inside +/-5 degrees in `BALANCE` for one continuous second.
 
-## Files
+## Project layout
 
-- `include/pendulum/controller.hpp`: configuration, state, safety, and public controller interface.
-- `src/controller.cpp`: controller and safety implementation.
-- `src/estimator.cpp`: wrap-safe encoder differentiation and low-pass velocity estimation.
-- `src/sim_main.cpp`: full nonlinear cart-pole simulation.
-- `tests/controller_tests.cpp`: deterministic safety and transition tests.
-- `firmware/main_loop_example.cpp`: adapter boundary for the eventual STM32/Arduino board.
-- `docs/track_c_implementation_plan.md`: complete commissioning plan.
-- `docs/bill_of_materials.md`: parts list with prices and purchase links.
-- `docs/Proposed_Plan_Track_C_Advanced_Swing_Up.pdf`: original project proposal.
+- `software/`: controller code, Pico firmware, simulation, and tests.
+- `docs/`: project proposal, implementation plan, bill of materials, and document tool.
+- `platformio.ini`: Raspberry Pi Pico 2 build configuration.
+
+The folders inside `software/` follow the usual C++ layout: headers are in `include/`, implementations are in `src/`, hardware entry points are in `firmware/`, and checks are in `tests/`.
 
 ## Values that must be replaced before hardware testing
 
